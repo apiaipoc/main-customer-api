@@ -1,0 +1,230 @@
+openapi: 3.0.3
+info:
+  title: Customer API
+  version: 1.0.0
+
+components:
+  parameters:
+    customerId:
+      name: customerId
+      in: path
+      required: true
+      schema:
+        type: string
+        pattern: "^[a-zA-Z0-9\\-]+$"
+        minLength: 5
+        maxLength: 100
+      description: Unique identifier of a customer (alphanumeric with dashes)
+    x-messageId:
+      name: x-messageId
+      in: header
+      required: true
+      schema:
+        type: string
+        pattern: "^[a-zA-Z0-9\\-]+$"
+        minLength: 5
+        maxLength: 100
+      description: Optional message ID for tracing
+    x-appCorrelationId:
+      name: x-appCorrelationId
+      in: header
+      required: true
+      schema:
+        type: string
+        pattern: "^[a-zA-Z0-9\\-]+$"
+        minLength: 5
+        maxLength: 100
+      description: Optional app correlation ID for tracing
+    x-originatingSystemId:
+      name: x-originatingSystemId
+      in: header
+      required: true
+      schema:
+        type: string
+        pattern: "^[a-zA-Z0-9\\-]+$"
+        minLength: 4
+        maxLength: 20
+      description: Optional originating system ID
+    brandSilo:
+      name: brandSilo
+      in: query
+      required: true
+      schema:
+        type: string
+        pattern: "^[a-zA-Z0-9\\-]+$"
+        minLength: 2
+        maxLength: 10
+      description: Filter customers by brand silo
+    page:
+      name: page
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+      description: Page number for pagination
+    limit:
+      name: limit
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+      description: Page size for pagination
+    search:
+      name: search
+      in: query
+      required: false
+      schema:
+        type: string
+      description: Search term
+
+  schemas:
+    CustomerDto:
+      type: object
+      properties:
+        id:
+          type: string
+        firstName:
+          type: string
+          pattern: "^[a-zA-Z0-9\\-]+$"
+          minLength: 3
+          maxLength: 100
+        lastName:
+          type: string
+          pattern: "^[a-zA-Z0-9\\-]+$"
+          minLength: 2
+          maxLength: 100
+        email:
+          type: string
+          format: email
+          example: "user@example.com"
+        phone:
+          type: string
+        brandSilo:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+          readOnly: true
+          example: "2025-09-01T10:00:00Z"
+        updatedAt:
+          type: string
+          format: date-time
+          readOnly: true
+          example: "2025-09-01T12:30:00Z"
+        addresses:
+          type: array
+          items:
+            $ref: "#/components/schemas/AddressDto"
+    AddressDto:
+      type: object
+      properties:
+        type:
+          type: string
+        line1:
+          type: string
+        line2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        postalCode:
+          type: string
+        country:
+          type: string
+        isPrimary:
+          type: boolean
+
+paths:
+  /customers:
+    post:
+      summary: Create a customer
+      operationId: createCustomer
+      parameters:
+        - $ref: "#/components/parameters/x-messageId"
+        - $ref: "#/components/parameters/x-appCorrelationId"
+        - $ref: "#/components/parameters/x-originatingSystemId"
+        - $ref: "#/components/parameters/brandSilo"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CustomerDto"
+      responses:
+        "201":
+          description: Customer created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CustomerDto"
+    get:
+      summary: Arrange (list customers)
+      operationId: listCustomers
+      parameters:
+        - $ref: "#/components/parameters/x-messageId"
+        - $ref: "#/components/parameters/x-appCorrelationId"
+        - $ref: "#/components/parameters/x-originatingSystemId"
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/search"
+        - $ref: "#/components/parameters/brandSilo"
+      responses:
+        "200":
+          description: List of customers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CustomerDto"
+
+  /customers/{customerId}:
+    get:
+      summary: Arrange (get customer details)
+      operationId: getCustomer
+      parameters:
+        - $ref: "#/components/parameters/x-messageId"
+        - $ref: "#/components/parameters/x-appCorrelationId"
+        - $ref: "#/components/parameters/x-originatingSystemId"
+        - $ref: "#/components/parameters/brandSilo"
+        - $ref: "#/components/parameters/customerId"
+      responses:
+        "200":
+          description: Customer details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CustomerDto"
+    put:
+      summary: Update a customer
+      operationId: updateCustomer
+      parameters:
+        - $ref: "#/components/parameters/x-messageId"
+        - $ref: "#/components/parameters/x-appCorrelationId"
+        - $ref: "#/components/parameters/x-originatingSystemId"
+        - $ref: "#/components/parameters/brandSilo"
+        - $ref: "#/components/parameters/customerId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CustomerDto"
+      responses:
+        "200":
+          description: Customer updated
+    delete:
+      summary: Delete a customer
+      operationId: deleteCustomer
+      parameters:
+        - $ref: "#/components/parameters/x-messageId"
+        - $ref: "#/components/parameters/x-appCorrelationId"
+        - $ref: "#/components/parameters/x-originatingSystemId"
+        - $ref: "#/components/parameters/brandSilo"
+        - $ref: "#/components/parameters/customerId"
+      responses:
+        "204":
+          description: Customer deleted
