@@ -35,7 +35,7 @@ public class CustomerService {
     public CustomerDto getCustomer(String id) {
         return repository.findById(id)
                 .map(mapper::toDTO)
-                .orElseThrow(() -> new RuntimeException("Customer not found"));
+                .orElseThrow(() -> new RuntimeException("Customer not  in found"));
     }
 
     public CustomerDto updateCustomer(String id, CustomerDto dto) {
