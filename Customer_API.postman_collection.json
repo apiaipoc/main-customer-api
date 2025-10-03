@@ -1,0 +1,607 @@
+{
+	"info": {
+		"_postman_id": "422acdbd-72d1-4c0b-8e50-373085386ecd",
+		"name": "Customer API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "customers",
+			"item": [
+				{
+					"name": "{customer Id}",
+					"item": [
+						{
+							"name": "Arrange (get customer details)",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Optional message ID for tracing",
+										"key": "x-messageId",
+										"value": "v v v v"
+									},
+									{
+										"description": "(Required) Optional app correlation ID for tracing",
+										"key": "x-appCorrelationId",
+										"value": "v v v v"
+									},
+									{
+										"description": "(Required) Optional originating system ID",
+										"key": "x-originatingSystemId",
+										"value": "MGJ8SDad76"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/customers/:customerId?brandSilo=r r",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"customers",
+										":customerId"
+									],
+									"query": [
+										{
+											"key": "brandSilo",
+											"value": "r r",
+											"description": "(Required) Filter customers by brand silo"
+										}
+									],
+									"variable": [
+										{
+											"key": "customerId",
+											"value": "v v v v",
+											"description": "(Required) Unique identifier of a customer (alphanumeric with dashes)"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Customer details",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "(Required) Optional message ID for tracing",
+												"key": "x-messageId",
+												"value": "v v v v"
+											},
+											{
+												"description": "(Required) Optional app correlation ID for tracing",
+												"key": "x-appCorrelationId",
+												"value": "v v v v"
+											},
+											{
+												"description": "(Required) Optional originating system ID",
+												"key": "x-originatingSystemId",
+												"value": "MGJ8SDad76"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/customers/:customerId?brandSilo=r r",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"customers",
+												":customerId"
+											],
+											"query": [
+												{
+													"key": "brandSilo",
+													"value": "r r"
+												}
+											],
+											"variable": [
+												{
+													"key": "customerId",
+													"value": "v v v v",
+													"description": "(Required) Unique identifier of a customer (alphanumeric with dashes)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"ad incid\",\n  \"firstName\": \"fdpLdOKuCFr\",\n  \"lastName\": \"Q7\",\n  \"email\": \"user@example.com\",\n  \"phone\": \"d\",\n  \"brandSilo\": \"dolor non aliquip\",\n  \"createdAt\": \"2025-09-01T10:00:00Z\",\n  \"updatedAt\": \"2025-09-01T12:30:00Z\",\n  \"addresses\": [\n    {\n      \"type\": \"est\",\n      \"line1\": \"ea mollit aliqua\",\n      \"line2\": \"irure nisi\",\n      \"city\": \"laborum\",\n      \"state\": \"sed sit esse est\",\n      \"postalCode\": \"dolore Excepteur magna\",\n      \"country\": \"ut reprehenderit aute i\",\n      \"isPrimary\": true\n    },\n    {\n      \"type\": \"labore sint\",\n      \"line1\": \"magna esse\",\n      \"line2\": \"consectetur non ullamco\",\n      \"city\": \"magna non ad aliqua\",\n      \"state\": \"aute ex culpa\",\n      \"postalCode\": \"quis dolore culpa anim\",\n      \"country\": \"dolor consectetur nulla\",\n      \"isPrimary\": false\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Update a customer",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "(Required) Optional message ID for tracing",
+										"key": "x-messageId",
+										"value": "v v v v"
+									},
+									{
+										"description": "(Required) Optional app correlation ID for tracing",
+										"key": "x-appCorrelationId",
+										"value": "v v v v"
+									},
+									{
+										"description": "(Required) Optional originating system ID",
+										"key": "x-originatingSystemId",
+										"value": "MGJ8SDad76"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"quis do nulla officia\",\n  \"firstName\": \"2eH\",\n  \"lastName\": \"R1wtgyU\",\n  \"email\": \"user@example.com\",\n  \"phone\": \"Ut cupid\",\n  \"brandSilo\": \"ipsum commodo\",\n  \"addresses\": [\n    {\n      \"type\": \"dolor mollit sit \",\n      \"line1\": \"aliquip sit\",\n      \"line2\": \"laborum dolore dolor irure\",\n      \"city\": \"reprehe\",\n      \"state\": \"veniam aliquip est Lorem\",\n      \"postalCode\": \"laboris eiusmod\",\n      \"country\": \"irure\",\n      \"isPrimary\": false\n    },\n    {\n      \"type\": \"dolore quis laboris aliquip elit\",\n      \"line1\": \"ut irure esse\",\n      \"line2\": \"labore Lorem\",\n      \"city\": \"occaecat exercitation laborum enim\",\n      \"state\": \"adipisicing dolor Ut occaecat\",\n      \"postalCode\": \"eiusmod sit tempor nisi laboris\",\n      \"country\": \"nostrud in\",\n      \"isPrimary\": false\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/customers/:customerId?brandSilo=r r",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"customers",
+										":customerId"
+									],
+									"query": [
+										{
+											"key": "brandSilo",
+											"value": "r r",
+											"description": "(Required) Filter customers by brand silo"
+										}
+									],
+									"variable": [
+										{
+											"key": "customerId",
+											"value": "v v v v",
+											"description": "(Required) Unique identifier of a customer (alphanumeric with dashes)"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Customer updated",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "(Required) Optional message ID for tracing",
+												"key": "x-messageId",
+												"value": "v v v v"
+											},
+											{
+												"description": "(Required) Optional app correlation ID for tracing",
+												"key": "x-appCorrelationId",
+												"value": "v v v v"
+											},
+											{
+												"description": "(Required) Optional originating system ID",
+												"key": "x-originatingSystemId",
+												"value": "MGJ8SDad76"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"quis do nulla officia\",\n  \"firstName\": \"2eH\",\n  \"lastName\": \"R1wtgyU\",\n  \"email\": \"user@example.com\",\n  \"phone\": \"Ut cupid\",\n  \"brandSilo\": \"ipsum commodo\",\n  \"addresses\": [\n    {\n      \"type\": \"dolor mollit sit \",\n      \"line1\": \"aliquip sit\",\n      \"line2\": \"laborum dolore dolor irure\",\n      \"city\": \"reprehe\",\n      \"state\": \"veniam aliquip est Lorem\",\n      \"postalCode\": \"laboris eiusmod\",\n      \"country\": \"irure\",\n      \"isPrimary\": false\n    },\n    {\n      \"type\": \"dolore quis laboris aliquip elit\",\n      \"line1\": \"ut irure esse\",\n      \"line2\": \"labore Lorem\",\n      \"city\": \"occaecat exercitation laborum enim\",\n      \"state\": \"adipisicing dolor Ut occaecat\",\n      \"postalCode\": \"eiusmod sit tempor nisi laboris\",\n      \"country\": \"nostrud in\",\n      \"isPrimary\": false\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/customers/:customerId?brandSilo=r r",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"customers",
+												":customerId"
+											],
+											"query": [
+												{
+													"key": "brandSilo",
+													"value": "r r"
+												}
+											],
+											"variable": [
+												{
+													"key": "customerId",
+													"value": "v v v v",
+													"description": "(Required) Unique identifier of a customer (alphanumeric with dashes)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete a customer",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "(Required) Optional message ID for tracing",
+										"key": "x-messageId",
+										"value": "v v v v"
+									},
+									{
+										"description": "(Required) Optional app correlation ID for tracing",
+										"key": "x-appCorrelationId",
+										"value": "v v v v"
+									},
+									{
+										"description": "(Required) Optional originating system ID",
+										"key": "x-originatingSystemId",
+										"value": "MGJ8SDad76"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/customers/:customerId?brandSilo=r r",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"customers",
+										":customerId"
+									],
+									"query": [
+										{
+											"key": "brandSilo",
+											"value": "r r",
+											"description": "(Required) Filter customers by brand silo"
+										}
+									],
+									"variable": [
+										{
+											"key": "customerId",
+											"value": "v v v v",
+											"description": "(Required) Unique identifier of a customer (alphanumeric with dashes)"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Customer deleted",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "(Required) Optional message ID for tracing",
+												"key": "x-messageId",
+												"value": "v v v v"
+											},
+											{
+												"description": "(Required) Optional app correlation ID for tracing",
+												"key": "x-appCorrelationId",
+												"value": "v v v v"
+											},
+											{
+												"description": "(Required) Optional originating system ID",
+												"key": "x-originatingSystemId",
+												"value": "MGJ8SDad76"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/customers/:customerId?brandSilo=r r",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"customers",
+												":customerId"
+											],
+											"query": [
+												{
+													"key": "brandSilo",
+													"value": "r r"
+												}
+											],
+											"variable": [
+												{
+													"key": "customerId",
+													"value": "v v v v",
+													"description": "(Required) Unique identifier of a customer (alphanumeric with dashes)"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Create a customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"description": "(Required) Optional message ID for tracing",
+								"key": "x-messageId",
+								"value": "v v v v"
+							},
+							{
+								"description": "(Required) Optional app correlation ID for tracing",
+								"key": "x-appCorrelationId",
+								"value": "v v v v"
+							},
+							{
+								"description": "(Required) Optional originating system ID",
+								"key": "x-originatingSystemId",
+								"value": "MGJ8SDad76"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"velit qui aliquip mollit\",\n  \"firstName\": \"kYXGvp-VVAq\",\n  \"lastName\": \"LZvaQe\",\n  \"email\": \"user@example.com\",\n  \"phone\": \"culpa do\",\n  \"brandSilo\": \"do\",\n  \"addresses\": [\n    {\n      \"type\": \"est velit cillum sint\",\n      \"line1\": \"exercitatio\",\n      \"line2\": \"nostrud ullamco proident voluptate\",\n      \"city\": \"sint est labore\",\n      \"state\": \"ullamco pariatur\",\n      \"postalCode\": \"minim\",\n      \"country\": \"aliquip\",\n      \"isPrimary\": false\n    },\n    {\n      \"type\": \"laboris culpa commodo Lorem\",\n      \"line1\": \"esse nostrud dolore\",\n      \"line2\": \"ea aute \",\n      \"city\": \"aliquip proident irure\",\n      \"state\": \"aute minim ut nulla\",\n      \"postalCode\": \"ullamco adipisicing\",\n      \"country\": \"cillum\",\n      \"isPrimary\": false\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/customers?brandSilo=r r",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"customers"
+							],
+							"query": [
+								{
+									"key": "brandSilo",
+									"value": "r r",
+									"description": "(Required) Filter customers by brand silo"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Customer created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) Optional message ID for tracing",
+										"key": "x-messageId",
+										"value": "v v v v"
+									},
+									{
+										"description": "(Required) Optional app correlation ID for tracing",
+										"key": "x-appCorrelationId",
+										"value": "v v v v"
+									},
+									{
+										"description": "(Required) Optional originating system ID",
+										"key": "x-originatingSystemId",
+										"value": "MGJ8SDad76"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"quis do nulla officia\",\n  \"firstName\": \"2eH\",\n  \"lastName\": \"R1wtgyU\",\n  \"email\": \"user@example.com\",\n  \"phone\": \"Ut cupid\",\n  \"brandSilo\": \"ipsum commodo\",\n  \"addresses\": [\n    {\n      \"type\": \"dolor mollit sit \",\n      \"line1\": \"aliquip sit\",\n      \"line2\": \"laborum dolore dolor irure\",\n      \"city\": \"reprehe\",\n      \"state\": \"veniam aliquip est Lorem\",\n      \"postalCode\": \"laboris eiusmod\",\n      \"country\": \"irure\",\n      \"isPrimary\": false\n    },\n    {\n      \"type\": \"dolore quis laboris aliquip elit\",\n      \"line1\": \"ut irure esse\",\n      \"line2\": \"labore Lorem\",\n      \"city\": \"occaecat exercitation laborum enim\",\n      \"state\": \"adipisicing dolor Ut occaecat\",\n      \"postalCode\": \"eiusmod sit tempor nisi laboris\",\n      \"country\": \"nostrud in\",\n      \"isPrimary\": false\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/customers?brandSilo=r r",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"customers"
+									],
+									"query": [
+										{
+											"key": "brandSilo",
+											"value": "r r"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": \"ad incid\",\n  \"firstName\": \"fdpLdOKuCFr\",\n  \"lastName\": \"Q7\",\n  \"email\": \"user@example.com\",\n  \"phone\": \"d\",\n  \"brandSilo\": \"dolor non aliquip\",\n  \"createdAt\": \"2025-09-01T10:00:00Z\",\n  \"updatedAt\": \"2025-09-01T12:30:00Z\",\n  \"addresses\": [\n    {\n      \"type\": \"est\",\n      \"line1\": \"ea mollit aliqua\",\n      \"line2\": \"irure nisi\",\n      \"city\": \"laborum\",\n      \"state\": \"sed sit esse est\",\n      \"postalCode\": \"dolore Excepteur magna\",\n      \"country\": \"ut reprehenderit aute i\",\n      \"isPrimary\": true\n    },\n    {\n      \"type\": \"labore sint\",\n      \"line1\": \"magna esse\",\n      \"line2\": \"consectetur non ullamco\",\n      \"city\": \"magna non ad aliqua\",\n      \"state\": \"aute ex culpa\",\n      \"postalCode\": \"quis dolore culpa anim\",\n      \"country\": \"dolor consectetur nulla\",\n      \"isPrimary\": false\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Arrange (list customers)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "(Required) Optional message ID for tracing",
+								"key": "x-messageId",
+								"value": "v v v v"
+							},
+							{
+								"description": "(Required) Optional app correlation ID for tracing",
+								"key": "x-appCorrelationId",
+								"value": "v v v v"
+							},
+							{
+								"description": "(Required) Optional originating system ID",
+								"key": "x-originatingSystemId",
+								"value": "MGJ8SDad76"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/customers?page=61813467&limit=61813467&search=in velit&brandSilo=r r",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"customers"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "61813467",
+									"description": "Page number for pagination"
+								},
+								{
+									"key": "limit",
+									"value": "61813467",
+									"description": "Page size for pagination"
+								},
+								{
+									"key": "search",
+									"value": "in velit",
+									"description": "Search term"
+								},
+								{
+									"key": "brandSilo",
+									"value": "r r",
+									"description": "(Required) Filter customers by brand silo"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List of customers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "(Required) Optional message ID for tracing",
+										"key": "x-messageId",
+										"value": "v v v v"
+									},
+									{
+										"description": "(Required) Optional app correlation ID for tracing",
+										"key": "x-appCorrelationId",
+										"value": "v v v v"
+									},
+									{
+										"description": "(Required) Optional originating system ID",
+										"key": "x-originatingSystemId",
+										"value": "MGJ8SDad76"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/customers?page=61813467&limit=61813467&search=in velit&brandSilo=r r",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"customers"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "61813467"
+										},
+										{
+											"key": "limit",
+											"value": "61813467"
+										},
+										{
+											"key": "search",
+											"value": "in velit"
+										},
+										{
+											"key": "brandSilo",
+											"value": "r r"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": \"proident\",\n    \"firstName\": \"xK7JgD1krC5\",\n    \"lastName\": \"3OcFg\",\n    \"email\": \"user@example.com\",\n    \"phone\": \"ex fugiat mollit\",\n    \"brandSilo\": \"officia nostrud consequat\",\n    \"createdAt\": \"2025-09-01T10:00:00Z\",\n    \"updatedAt\": \"2025-09-01T12:30:00Z\",\n    \"addresses\": [\n      {\n        \"type\": \"dolore dolor\",\n        \"line1\": \"consequat\",\n        \"line2\": \"exerc\",\n        \"city\": \"anim\",\n        \"state\": \"aute irure magna cupidatat\",\n        \"postalCode\": \"dolor culpa est\",\n        \"country\": \"ex quis magna amet Lorem\",\n        \"isPrimary\": true\n      },\n      {\n        \"type\": \"sunt\",\n        \"line1\": \"aute Lorem anim\",\n        \"line2\": \"aute ipsum ullamco aliqua\",\n        \"city\": \"quis dolore\",\n        \"state\": \"eu proident Ut tempor\",\n        \"postalCode\": \"aliqua dolor anim\",\n        \"country\": \"commodo est\",\n        \"isPrimary\": false\n      }\n    ]\n  },\n  {\n    \"id\": \"magna\",\n    \"firstName\": \"7NFvgFY26\",\n    \"lastName\": \"2Ak-Zsc4zjx\",\n    \"email\": \"user@example.com\",\n    \"phone\": \"aliqua sint ullamco\",\n    \"brandSilo\": \"amet exercitation\",\n    \"createdAt\": \"2025-09-01T10:00:00Z\",\n    \"updatedAt\": \"2025-09-01T12:30:00Z\",\n    \"addresses\": [\n      {\n        \"type\": \"dolore in dolore proident\",\n        \"line1\": \"aliqua amet\",\n        \"line2\": \"ad\",\n        \"city\": \"et enim\",\n        \"state\": \"sunt laboris est\",\n        \"postalCode\": \"ipsum proident Lorem laboris consectetur\",\n        \"country\": \"proident consequat nulla aliquip\",\n        \"isPrimary\": true\n      },\n      {\n        \"type\": \"irure\",\n        \"line1\": \"dolore Lorem eiusmod dolore\",\n        \"line2\": \"ea fugiat\",\n        \"city\": \"magna incididunt\",\n        \"state\": \"occaecat elit\",\n        \"postalCode\": \"nulla\",\n        \"country\": \"Duis Lorem commodo mo\",\n        \"isPrimary\": true\n      }\n    ]\n  }\n]"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/",
+			"type": "string"
+		}
+	]
+}
